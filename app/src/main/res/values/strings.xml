@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Touch Wake</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_wake">Wake</string>
+    <string name="tab_advanced">Advanced</string>
+    <string name="action_about">About</string>
+    <string name="action_exit">Exit</string>
+    <string name="label_kernel">Kernel Information</string>
+    <string name="not_support">Warning! Make sure it gets root access and kernel support.</string>
+    <string name="none">Can\'t get information</string>
+    <string name="label_wake">Wake Options</string>
+    <string name="label_advanced">Advanced Options</string>
+    <string name="label_dtw">Double Tap To Wake</string>
+    <string name="desc_dtw">a switch to enable and disable dt2w feature</string>
+    <string name="label_sw">Sweep To Wake</string>
+    <string name="desc_sw">a switch to enable and disable s2w feature</string>
+    <string name="label_feather">Feather Value</string>
+    <string name="desc_feather">the bound between the two taps (in pixels)</string>
+    <string name="label_timeout">Timeout Value</string>
+    <string name="desc_timeout">the max. duration between the two taps (in ms)</string>
+    <string name="label_pressure">Pressure Value</string>
+    <string name="desc_pressure">the min. touch pressure to access dt2w-s2w</string>
+    <string name="label_set">Set Value</string>
+    <string name="label_zero">0</string>
+    <string name="label_titikdua">:</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="visit">Visit</string>
+    <string name="close">Close</string>
+    <string name="about">This application is used to enable or disable the dt2w and s2w feature.</string>
+    <string name="website">http://harimurti.net</string>
+    <string name="img_btn">Setting</string>
+</resources>
