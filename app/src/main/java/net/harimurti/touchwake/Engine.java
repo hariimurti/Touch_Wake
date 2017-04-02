@@ -7,13 +7,13 @@ import com.stericson.RootShell.exceptions.RootDeniedException;
 import com.stericson.RootShell.execution.Command;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.concurrent.TimeoutException;
 
 public class Engine {
@@ -51,7 +51,6 @@ public class Engine {
     }
 
     public static int getFeather() {
-        getFromFile(feather);
         return Integer.parseInt(getFromFile(feather));
     }
 
@@ -89,20 +88,20 @@ public class Engine {
         try {
             Process suProcess = Runtime.getRuntime().exec("su");
 
-            DataOutputStream os = new DataOutputStream(suProcess.getOutputStream());
-            DataInputStream osRes = new DataInputStream(suProcess.getInputStream());
+            BufferedWriter os = new BufferedWriter(new OutputStreamWriter(suProcess.getOutputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(suProcess.getInputStream()));
 
-            os.writeBytes("cat " + pathFile + "\n");
+            os.write("cat " + pathFile + "\n");
             os.flush();
 
-            @SuppressWarnings("deprecation")
-            String line = osRes.readLine();
+            String line = reader.readLine();
             if (null != line) {
                 retValue = line;
             }
 
-            os.writeBytes("exit\n");
+            os.write("exit\n");
             os.flush();
+            os.close();
         }
         catch (Exception e) {
             Log.e("RootShell", "Error: " + e.getMessage());

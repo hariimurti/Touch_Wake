@@ -28,6 +28,8 @@ import android.widget.TextView;
 
 import com.stericson.RootShell.RootShell;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -134,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
                 rootView = inflater.inflate(R.layout.fragment_advanced, container, false);
 
                 TextView valueFeather = (TextView)  rootView.findViewById(R.id.value_feather);
-                valueFeather.setText(Integer.toString(Engine.getFeather()));
+                valueFeather.setText(String.format(Locale.getDefault(), "%d", Engine.getFeather()));
                 TextView valueTimeout = (TextView)  rootView.findViewById(R.id.value_timeout);
-                valueTimeout.setText(Integer.toString(Engine.getTimeout()));
+                valueTimeout.setText(String.format(Locale.getDefault(), "%d", Engine.getTimeout()));
                 TextView valuePressure = (TextView)  rootView.findViewById(R.id.value_pressure);
-                valuePressure.setText(Integer.toString(Engine.getPressure()));
+                valuePressure.setText(String.format(Locale.getDefault(), "%d", Engine.getPressure()));
 
                 ImageView imgOption1 = (ImageView) rootView.findViewById(R.id.option1);
                 imgOption1.setOnClickListener(this);
@@ -222,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getString(R.string.tab_home);
+                    return getString(R.string.tab_main);
                 case 1:
                     return getString(R.string.tab_advanced);
             }

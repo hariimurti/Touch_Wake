@@ -13,9 +13,11 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class CustomDialog {
-    static int seekMax = 100;
-    static int seekMin = 0;
+    private static int seekMax = 100;
+    private static int seekMin = 0;
 
     public static void setValue(final Context context, String title, final String key) {
         final ConfigManager config = new ConfigManager(context);
@@ -46,13 +48,13 @@ public class CustomDialog {
 
         seekBar.setMax(seekMax - seekMin);
         seekBar.setProgress(configValue - seekMin);
-        textValue.setText(Integer.toString(configValue));
+        textValue.setText(String.format(Locale.getDefault(), "%d", configValue));
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progress = seekMin + progress;
-                textValue.setText(Integer.toString(progress));
+                textValue.setText(String.format(Locale.getDefault(), "%d", progress));
                 config.setTemp(key, progress);
             }
 
