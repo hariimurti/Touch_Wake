@@ -25,6 +25,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stericson.RootShell.RootShell;
 
@@ -156,15 +157,19 @@ public class MainActivity extends AppCompatActivity {
                     kernelInfo.setText(textInfo);
 
                 Switch doubletap = (Switch) rootView.findViewById(R.id.switch1);
-                boolean dt2w = Engine.getDoubleTap();
+                boolean dt2w = config.getBoolean("doubletap");
+                if (dt2w != Engine.getDoubleTap())
+                    showToast(getContext(), R.string.toast_dtw, dt2w);
+                Engine.setDoubleTap(dt2w);
                 doubletap.setChecked(dt2w);
-                config.setBoolean("doubletap", dt2w);
                 doubletap.setOnCheckedChangeListener(this);
 
                 Switch sweep = (Switch) rootView.findViewById(R.id.switch2);
-                boolean s2w = Engine.getSweep();
+                boolean s2w = config.getBoolean("sweep");
+                if (s2w != Engine.getSweep())
+                    showToast(getContext(), R.string.toast_stw, s2w);
+                Engine.setSweep(s2w);
                 sweep.setChecked(s2w);
-                config.setBoolean("sweep", s2w);
                 sweep.setOnCheckedChangeListener(this);
             }
             return rootView;
@@ -192,10 +197,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.switch1:
                     cm.setBoolean("doubletap", isChecked);
                     Engine.setDoubleTap(isChecked);
+                    showToast(getContext(), R.string.toast_dtw, isChecked);
                     break;
                 case R.id.switch2:
                     cm.setBoolean("sweep", isChecked);
                     Engine.setSweep(isChecked);
+                    showToast(getContext(), R.string.toast_stw, isChecked);
                     break;
             }
         }
@@ -230,5 +237,12 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    private static void showToast(Context context, int stringId, boolean value) {
+        Toast.makeText(context,
+                String.format(context.getString(stringId), value ? "On" : "Off"),
+                Toast.LENGTH_SHORT)
+                .show();
     }
 }

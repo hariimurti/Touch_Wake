@@ -128,13 +128,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_sw" />
+                android:text="@string/label_stw" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="@string/desc_sw"
+                android:text="@string/desc_stw"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
 

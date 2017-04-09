@@ -11,9 +11,9 @@
     <string name="label_wake">Wake Options</string>
     <string name="label_advanced">Advanced Options</string>
     <string name="label_dtw">Double Tap To Wake</string>
-    <string name="desc_dtw">a switch to enable and disable dt2w feature</string>
-    <string name="label_sw">Sweep To Wake</string>
-    <string name="desc_sw">a switch to enable and disable s2w feature</string>
+    <string name="desc_dtw">wake device with touching screen twice (fast)</string>
+    <string name="label_stw">Sweep To Wake</string>
+    <string name="desc_stw">wake device with sweeping screen (left to right)</string>
     <string name="label_feather">Feather Value</string>
     <string name="desc_feather">the bound between the two taps (in pixels)</string>
     <string name="label_timeout">Timeout Value</string>
@@ -31,4 +31,6 @@
     <string name="about">This application is used to enable or disable the dt2w and s2w feature.</string>
     <string name="website">http://harimurti.net</string>
     <string name="img_btn">Setting</string>
+    <string name="toast_dtw">Turn %s : DoubleTap to Wake</string>
+    <string name="toast_stw">Turn %s : Sweep to Wake</string>
 </resources>
