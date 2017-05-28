@@ -8,6 +8,7 @@ this app is used to enable/disable doubletap to wake (dt2w) and sweep to wake (s
 ## Requires
 + Xiaomi Redmi 1s (Armani)
 + Kernel [ArmaniDev++](https://github.com/hariimurti/kernel_armani_dt2w)
++ Root
 
 ## Screenshot
 ![Screenshot](https://github.com/hariimurti/Touch_Wake/raw/master/screenshot/Screenshot_20170505-053235.png "Main")
